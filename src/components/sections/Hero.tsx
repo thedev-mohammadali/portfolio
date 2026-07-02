@@ -1,3 +1,4 @@
+import { ArrowRight, Download } from "lucide-react";
 import profileImage from "../../assets/images/profile.jpg";
 import { socials } from "../../data/socials";
 import Container from "../common/Container";
@@ -15,26 +16,32 @@ const Hero = () => {
           {/* Left */}
 
           <div>
-            <p className="mb-4 text-lg text-primary">{hero.greeting}</p>
+            <p className="mb-4 text-lg font-medium text-primary">
+              {hero.greeting}
+            </p>
 
-            <h1 className="mb-4 text-5xl font-extrabold tracking-tight lg:text-7xl">
+            <h1 className="mb-4 text-5xl font-black tracking-tight sm:text-6xl lg:text-7xl">
               {hero.name}
             </h1>
 
-            <h2 className="mb-6 text-2xl font-semibold text-muted-foreground lg:text-3xl">
+            <h2 className="mb-8 text-2xl font-semibold text-muted-foreground lg:text-3xl">
               {hero.designation}
             </h2>
 
-            <p className="max-w-xl leading-8 text-muted-foreground">
+            <p className="max-w-xl text-lg leading-8 text-muted-foreground">
               {hero.description}
             </p>
 
             {/* Buttons */}
             <div className="mt-10 flex flex-wrap gap-4">
-              <LinkButton href={hero.resume}>Download Resume</LinkButton>
+              <LinkButton href={hero.resume}>
+                <Download size={18} />
+                Download Resume
+              </LinkButton>
 
               <LinkButton href="#projects" variant="outline">
                 View Projects
+                <ArrowRight size={18} />
               </LinkButton>
             </div>
 
@@ -53,12 +60,15 @@ const Hero = () => {
 
           {/* Right */}
 
-          <div className="flex justify-center">
-            <img
-              src={profileImage}
-              alt="Mohammad Ali"
-              className="aspect-square w-80 rounded-full object-cover border border-border shadow-2xl"
-            />
+          <div className="flex justify-center lg:justify-self-end">
+            <div className="relative">
+              <div className="absolute inset-0 -z-10 rounded-full bg-primary/20 blur-3xl" />
+              <img
+                src={profileImage}
+                alt="Mohammad Ali"
+                className="aspect-square w-80 rounded-full object-cover border border-border shadow-2xl"
+              />
+            </div>
           </div>
         </div>
       </Container>
