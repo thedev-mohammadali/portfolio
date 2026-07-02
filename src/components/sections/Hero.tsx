@@ -16,11 +16,11 @@ const Hero = () => {
           {/* Left */}
 
           <div>
-            <p className="mb-4 text-lg font-medium text-primary">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-primary">
               {hero.greeting}
             </p>
 
-            <h1 className="mb-4 text-5xl font-black tracking-tight sm:text-6xl lg:text-7xl">
+            <h1 className="mb-4 text-5xl font-black leading-tight tracking-tight sm:text-6xl lg:text-7xl">
               {hero.name}
             </h1>
 
@@ -28,13 +28,13 @@ const Hero = () => {
               {hero.designation}
             </h2>
 
-            <p className="max-w-xl text-lg leading-8 text-muted-foreground">
+            <p className="max-w-lg text-lg leading-8 text-muted-foreground">
               {hero.description}
             </p>
 
             {/* Buttons */}
-            <div className="mt-10 flex flex-wrap gap-4">
-              <LinkButton href={hero.resume}>
+            <div className="mt-8 flex flex-wrap gap-4">
+              <LinkButton href={hero.resume} download>
                 <Download size={18} />
                 Download Resume
               </LinkButton>
@@ -61,12 +61,13 @@ const Hero = () => {
           {/* Right */}
 
           <div className="flex justify-center lg:justify-self-end">
-            <div className="relative">
-              <div className="absolute inset-0 -z-10 rounded-full bg-primary/20 blur-3xl" />
+            <div className="relative w-fit">
+              <div className="absolute -inset-10 rounded-full bg-primary/30 blur-[80px]" />
+
               <img
                 src={profileImage}
                 alt="Mohammad Ali"
-                className="aspect-square w-80 rounded-full object-cover border border-border shadow-2xl"
+                className="relative z-10 aspect-square w-72 rounded-full border border-border object-cover shadow-xl md:w-96"
               />
             </div>
           </div>
