@@ -5,11 +5,12 @@ import Navbar from "../components/layout/Navbar";
 const MainLayout = () => {
   return (
     <>
-      <Navbar />
-
-      <main>
-        <Outlet />
-      </main>
+      <div className="min-h-screen bg-background text-foreground">
+        <Navbar />
+        <main>
+          <Outlet />
+        </main>
+      </div>
     </>
   );
 };
