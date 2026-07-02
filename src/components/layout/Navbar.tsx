@@ -1,6 +1,6 @@
 import { navigationItems } from "../../data/navigation";
 import Container from "../common/Container";
-import Button from "../ui/Button";
+import LinkButton from "../ui/LinkButton";
 
 const Navbar = () => {
   return (
@@ -39,7 +39,7 @@ const Navbar = () => {
               🌙
             </button>
 
-            <Button href="/resume.pdf">Resume</Button>
+            <LinkButton href="/resume.pdf">Resume</LinkButton>
           </div>
         </nav>
       </Container>
