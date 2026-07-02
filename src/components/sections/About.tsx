@@ -1,4 +1,11 @@
-import profileImage from "../../assets/images/profile.jpg";
+import { motion } from "motion/react";
+import {
+  fadeDown,
+  fadeLeft,
+  fadeUp,
+  staggerContainer,
+} from "../../animations/hero";
+import aboutImage from "../../assets/images/about.jpg";
 import { about } from "../../data/about";
 import Container from "../common/Container";
 import Section from "../common/Section";
@@ -10,23 +17,32 @@ const About = () => {
       <Container>
         <SectionTitle title={about.title} subtitle="Get to know me better" />
 
-        <div className="mt-16 grid items-center gap-16 lg:grid-cols-2">
+        <motion.div
+          className="mt-16 grid items-center gap-16 lg:grid-cols-2"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{
+            once: true,
+            amount: 0.2,
+          }}
+        >
           {/* Left */}
-          <div className="flex justify-center">
+          <motion.div variants={fadeLeft} className="flex justify-center">
             <div className="relative">
-              <div className="bg-primary/20 absolute -inset-4 rounded-3xl blur-2xl" />
+              <motion.div className="bg-primary/20 absolute -inset-4 rounded-3xl blur-2xl" />
 
               <img
-                src={profileImage}
+                src={aboutImage}
                 alt="Mohammad Ali"
-                className="border-border relative aspect-square w-72 rounded-2xl border object-cover shadow-xl md:w-96"
+                className="border-border relative z-10 aspect-square w-72 rounded-2xl border object-cover shadow-xl md:w-96"
               />
             </div>
-          </div>
+          </motion.div>
 
           {/* Right */}
-          <div>
-            <div className="space-y-7">
+          <div className="space-y-10">
+            <motion.div variants={fadeUp} className="space-y-7">
               {about.paragraphs.map((paragraph, index) => (
                 <p
                   key={index}
@@ -35,9 +51,12 @@ const About = () => {
                   {paragraph}
                 </p>
               ))}
-            </div>
+            </motion.div>
 
-            <div className="mt-10 grid gap-4 sm:grid-cols-2">
+            <motion.div
+              variants={fadeDown}
+              className="grid gap-4 sm:grid-cols-2"
+            >
               {about.facts.map((fact) => (
                 <div
                   key={fact.label}
@@ -47,14 +66,14 @@ const About = () => {
                     {fact.label}
                   </p>
 
-                  <p className="text-foreground text-lg font-semibold">
+                  <p className="text-foreground mt-2 text-lg font-semibold">
                     {fact.value}
                   </p>
                 </div>
               ))}
-            </div>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
       </Container>
     </Section>
   );

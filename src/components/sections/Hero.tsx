@@ -2,7 +2,7 @@ import { ArrowRight, Download } from "lucide-react";
 import { motion } from "motion/react";
 
 import { fadeLeft, fadeUp, staggerContainer } from "../../animations/hero";
-import profileImage from "../../assets/images/profile.jpg";
+import profileImage from "../../assets/images/profile1.jpg";
 import { hero } from "../../data/hero";
 import { socials } from "../../data/socials";
 
@@ -24,28 +24,28 @@ const Hero = () => {
           >
             <motion.p
               variants={fadeUp}
-              className="mb-3 text-sm font-semibold uppercase tracking-widest text-primary"
+              className="text-primary mb-3 text-sm font-semibold tracking-widest uppercase"
             >
               {hero.greeting}
             </motion.p>
 
             <motion.h1
               variants={fadeUp}
-              className="mb-4 text-5xl font-black leading-tight tracking-tight sm:text-6xl lg:text-7xl"
+              className="mb-4 text-5xl leading-tight font-black tracking-tight sm:text-6xl lg:text-7xl"
             >
               {hero.name}
             </motion.h1>
 
             <motion.h2
               variants={fadeUp}
-              className="mb-8 text-2xl font-semibold text-muted-foreground lg:text-3xl"
+              className="text-muted-foreground mb-8 text-2xl font-semibold lg:text-3xl"
             >
               {hero.designation}
             </motion.h2>
 
             <motion.p
               variants={fadeUp}
-              className="max-w-lg text-lg leading-8 text-muted-foreground"
+              className="text-muted-foreground max-w-lg text-lg leading-8"
             >
               {hero.description}
             </motion.p>
@@ -95,7 +95,7 @@ const Hero = () => {
             >
               <div className="relative w-fit">
                 <motion.div
-                  className="absolute -inset-10 rounded-full bg-primary/30 blur-[80px]"
+                  className="bg-primary/30 absolute -inset-10 rounded-full blur-[80px]"
                   animate={{
                     scale: [1, 1.08, 1],
                     opacity: [0.3, 0.5, 0.3],
@@ -110,7 +110,7 @@ const Hero = () => {
                 <motion.img
                   src={profileImage}
                   alt="Mohammad Ali"
-                  className="relative z-10 aspect-square w-72 rounded-full border border-border object-cover shadow-xl md:w-96"
+                  className="border-border relative z-10 aspect-square w-72 rounded-full border object-cover shadow-xl md:w-96"
                   whileHover={{
                     scale: 1.02,
                   }}

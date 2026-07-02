@@ -38,3 +38,33 @@ export const fadeLeft: Variants = {
     },
   },
 };
+
+export const fadeRight: Variants = {
+  hidden: {
+    opacity: 0,
+    x: -20,
+  },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.7,
+      ease: "easeOut",
+    },
+  },
+};
+
+export const fadeDown: Variants = {
+  hidden: {
+    opacity: 0,
+    y: -15,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.7,
+      ease: "easeOut",
+    },
+  },
+};
