@@ -1,10 +1,9 @@
-import { forwardRef, type ButtonHTMLAttributes } from "react";
-
 import {
   buttonClasses,
   type ButtonSize,
   type ButtonVariant,
 } from "@/utils/button";
+import { forwardRef, type ButtonHTMLAttributes } from "react";
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   variant?: ButtonVariant;
@@ -12,7 +11,7 @@ type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   className?: string;
 };
 
-const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+const MyButton = forwardRef<HTMLButtonElement, ButtonProps>(
   (
     {
       children,
@@ -37,6 +36,6 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   },
 );
 
-Button.displayName = "Button";
+MyButton.displayName = "Button";
 
-export default Button;
+export default MyButton;

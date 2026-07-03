@@ -5,8 +5,8 @@ import { projects } from "../../data/projects";
 import Container from "../common/Container";
 import Section from "../common/Section";
 import SectionTitle from "../common/SectionTitle";
-import Button from "../ui/Button";
 import LinkButton from "../ui/LinkButton";
+import Button from "../ui/MyButton";
 
 const Projects = () => {
   const homeProjects = projects.items.slice(0, 3);
