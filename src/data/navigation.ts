@@ -16,10 +16,6 @@ export const navigationItems = [
     href: "#education",
   },
   {
-    label: "Experience",
-    href: "#experience",
-  },
-  {
     label: "Projects",
     href: "#projects",
   },
@@ -28,3 +24,7 @@ export const navigationItems = [
     href: "#contact",
   },
 ] as const;
+
+export const navigationSectionIds = navigationItems.map((item) =>
+  item.href.slice(1),
+);

@@ -1,3 +1,5 @@
+import { navigationSectionIds } from "@/data/navigation";
+import useActiveSection from "@/hooks/useActiveSection";
 import Container from "../common/Container";
 import DesktopNavigation from "../navigation/DesktopNavigation";
 import MobileNavigation from "../navigation/MobileNavigation";
@@ -5,6 +7,8 @@ import LinkButton from "../ui/LinkButton";
 import ThemeSelector from "../ui/ThemeSelector";
 
 const Navbar = () => {
+  const activeSection = useActiveSection(navigationSectionIds);
+  console.log(activeSection);
   return (
     <header className="border-border bg-background/80 sticky top-0 z-50 border-b backdrop-blur-md">
       <nav aria-label="Primary navigation">
