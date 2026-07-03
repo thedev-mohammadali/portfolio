@@ -1,3 +1,4 @@
+import ScrollToTop from "@/components/common/ScrollToTop";
 import About from "@/components/sections/About";
 import Contact from "@/components/sections/Contact";
 import Education from "@/components/sections/Education";
@@ -16,6 +17,8 @@ const Home = () => {
       <Projects />
       <Contact />
       <Footer />
+
+      <ScrollToTop />
     </>
   );
 };
