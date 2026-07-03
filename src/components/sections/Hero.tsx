@@ -15,9 +15,10 @@ const Hero = () => {
   return (
     <Section id="home" className="flex min-h-[calc(100vh-5rem)] items-center">
       <Container>
-        <div className="grid items-center gap-16 lg:grid-cols-2">
-          {/* Left */}
+        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+          {/* Content */}
           <motion.div
+            className="order-2 flex flex-col items-center text-center lg:order-1 lg:items-start lg:text-left"
             variants={staggerContainer}
             initial="hidden"
             animate="visible"
@@ -38,19 +39,22 @@ const Hero = () => {
 
             <motion.h2
               variants={fadeUp}
-              className="text-muted-foreground mb-8 text-2xl font-semibold lg:text-3xl"
+              className="text-muted-foreground mb-6 text-2xl font-semibold lg:mb-8 lg:text-3xl"
             >
               {hero.designation}
             </motion.h2>
 
             <motion.p
               variants={fadeUp}
-              className="text-muted-foreground max-w-lg text-lg leading-8"
+              className="text-muted-foreground mx-auto max-w-lg text-lg leading-8 lg:mx-0"
             >
               {hero.description}
             </motion.p>
 
-            <motion.div variants={fadeUp} className="mt-8 flex flex-wrap gap-4">
+            <motion.div
+              variants={fadeUp}
+              className="mt-8 flex w-full flex-col gap-4 sm:w-auto sm:flex-row sm:flex-wrap sm:justify-center lg:justify-start"
+            >
               <LinkButton href={hero.resume} download>
                 <Download size={18} />
                 Download Resume
@@ -62,7 +66,10 @@ const Hero = () => {
               </LinkButton>
             </motion.div>
 
-            <motion.div variants={fadeUp} className="mt-10 flex gap-4">
+            <motion.div
+              variants={fadeUp}
+              className="mt-10 flex justify-center gap-4 lg:justify-start"
+            >
               {socials.map((social) => (
                 <motion.div key={social.name} variants={fadeUp}>
                   <SocialButton
@@ -75,9 +82,9 @@ const Hero = () => {
             </motion.div>
           </motion.div>
 
-          {/* Right */}
+          {/* Profile Image */}
           <motion.div
-            className="flex justify-center lg:justify-self-end"
+            className="order-1 mb-2 flex justify-center lg:order-2 lg:mb-0 lg:justify-self-end"
             variants={fadeLeft}
             initial="hidden"
             animate="visible"
@@ -110,7 +117,7 @@ const Hero = () => {
                 <motion.img
                   src={profileImage}
                   alt="Mohammad Ali"
-                  className="border-border relative z-10 aspect-square w-72 rounded-full border object-cover shadow-xl md:w-96"
+                  className="border-border relative z-10 aspect-square w-64 rounded-full border object-cover shadow-xl sm:w-72 md:w-80 lg:w-96"
                   whileHover={{
                     scale: 1.02,
                   }}
