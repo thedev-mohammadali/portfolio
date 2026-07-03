@@ -1,16 +1,21 @@
 import { navigationItems } from "@/data/navigation";
+import { motion } from "motion/react";
+import NavigationLink from "./NavigationLink";
 
-const DesktopNavigation = () => {
+const DesktopNavigation = ({ activeSection }: { activeSection: string }) => {
   return (
     <ul className="hidden items-center gap-8 lg:flex">
       {navigationItems.map((item) => (
         <li key={item.href}>
-          <a
-            href={item.href}
-            className="text-foreground hover:text-primary text-sm font-medium transition-colors duration-300"
-          >
-            {item.label}
-          </a>
+          <motion.div layout>
+            <NavigationLink
+              href={item.href}
+              label={item.label}
+              activeSection={activeSection}
+              animated
+              className="text-sm font-medium"
+            />
+          </motion.div>
         </li>
       ))}
     </ul>

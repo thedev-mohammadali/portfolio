@@ -10,8 +10,9 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "../ui/sheet";
+import NavigationLink from "./NavigationLink";
 
-const MobileNavigation = () => {
+const MobileNavigation = ({ activeSection }: { activeSection: string }) => {
   return (
     <Sheet>
       <SheetTrigger asChild>
@@ -35,12 +36,12 @@ const MobileNavigation = () => {
             {navigationItems.map((item) => (
               <li key={item.href}>
                 <SheetClose asChild>
-                  <a
+                  <NavigationLink
                     href={item.href}
-                    className="hover:bg-card block rounded-lg px-4 py-3 text-base font-medium transition-colors"
-                  >
-                    {item.label}
-                  </a>
+                    label={item.label}
+                    activeSection={activeSection}
+                    className="hover:bg-card block rounded-lg px-4 py-3 text-base font-medium"
+                  />
                 </SheetClose>
               </li>
             ))}

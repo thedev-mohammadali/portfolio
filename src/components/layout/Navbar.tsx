@@ -23,7 +23,7 @@ const Navbar = () => {
             </a>
 
             {/* Desktop Navigation */}
-            <DesktopNavigation />
+            <DesktopNavigation activeSection={activeSection} />
 
             {/* Right Section */}
             <div className="flex items-center gap-3">
@@ -38,7 +38,7 @@ const Navbar = () => {
               </LinkButton>
 
               {/* Mobile menu goes here */}
-              <MobileNavigation />
+              <MobileNavigation activeSection={activeSection} />
             </div>
           </div>
         </Container>
