@@ -1,9 +1,12 @@
-export const skills = {
+import type { Skills } from "../types/skills";
+
+export const skills: Skills = {
   title: "Skills",
   subtitle: "Technologies I use to build modern web applications",
 
   categories: [
     {
+      id: "frontend",
       title: "Frontend",
       items: [
         "React",
@@ -15,25 +18,19 @@ export const skills = {
         "CSS3",
       ],
     },
-
     {
+      id: "backend",
       title: "Backend",
-      items: [
-        "Node.js",
-        "Express.js",
-        "REST APIs",
-        "JWT Authentication",
-        "Zod",
-      ],
+      items: ["Node.js", "Express.js", "REST APIs", "JWT Authentication"],
     },
-
     {
+      id: "database",
       title: "Database",
       items: ["PostgreSQL", "Prisma ORM"],
     },
-
     {
-      title: "Tools",
+      id: "tools",
+      title: "Developer Tools",
       items: ["Git", "GitHub", "VS Code", "Postman", "pnpm"],
     },
   ],
