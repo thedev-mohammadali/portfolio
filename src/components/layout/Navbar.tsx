@@ -1,16 +1,17 @@
 import { navigationItems } from "../../data/navigation";
 import Container from "../common/Container";
 import LinkButton from "../ui/LinkButton";
+import ThemeSelector from "../ui/ThemeSelector";
 
 const Navbar = () => {
   return (
-    <header className="w-full border-b border-border bg-background">
+    <header className="border-border bg-background w-full border-b">
       <Container>
         <nav className="flex h-20 items-center justify-between">
           {/* Logo */}
           <a
             href="#home"
-            className="text-2xl font-bold tracking-tight text-foreground"
+            className="text-foreground text-2xl font-bold tracking-tight"
           >
             {"</>"} Ali
           </a>
@@ -21,7 +22,7 @@ const Navbar = () => {
               <li key={item.href}>
                 <a
                   href={item.href}
-                  className="text-sm font-medium text-foreground transition-colors hover:text-primary"
+                  className="text-foreground hover:text-primary text-sm font-medium transition-colors"
                 >
                   {item.label}
                 </a>
@@ -32,13 +33,7 @@ const Navbar = () => {
           {/* Right Section */}
           <div className="flex items-center gap-4">
             {/* Theme Toggle Placeholder */}
-            <button
-              className="rounded-lg border border-border p-2 transition hover:bg-card"
-              aria-label="Toggle theme"
-            >
-              🌙
-            </button>
-
+            <ThemeSelector />
             <LinkButton href="/resume.pdf">Resume</LinkButton>
           </div>
         </nav>

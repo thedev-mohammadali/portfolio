@@ -1,28 +1,26 @@
-import clsx from "clsx";
-import type { AnchorHTMLAttributes, ReactNode } from "react";
+import type { AnchorHTMLAttributes } from "react";
+
 import {
-  buttonBaseClasses,
-  buttonVariants,
+  buttonClasses,
+  type ButtonSize,
   type ButtonVariant,
-} from "../../utils/button";
+} from "@/utils/button";
 
 type LinkButtonProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
-  children: ReactNode;
-  className?: string;
   variant?: ButtonVariant;
+  size?: ButtonSize;
+  className?: string;
 };
 
 const LinkButton = ({
   children,
-  className,
   variant = "primary",
+  size = "md",
+  className,
   ...props
 }: LinkButtonProps) => {
   return (
-    <a
-      className={clsx(buttonBaseClasses, buttonVariants[variant], className)}
-      {...props}
-    >
+    <a className={buttonClasses(variant, size, className)} {...props}>
       {children}
     </a>
   );

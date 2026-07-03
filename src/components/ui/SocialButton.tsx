@@ -9,7 +9,7 @@ const SocialButton = ({ icon, className, ...props }: SocialButtonProps) => {
   return (
     <a
       className={clsx(
-        "flex h-14 w-14 items-center justify-center rounded-full border border-border bg-card transition-all duration-300 hover:scale-105 hover:border-primary hover:text-primary",
+        "border-border bg-card hover:border-primary hover:text-primary flex h-14 w-14 items-center justify-center rounded-full border transition-all duration-300 hover:scale-105",
         className,
       )}
       target="_blank"

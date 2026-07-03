@@ -1,33 +1,42 @@
-import clsx from "clsx";
-import type { ButtonHTMLAttributes, ReactNode } from "react";
+import { forwardRef, type ButtonHTMLAttributes } from "react";
+
 import {
-  buttonBaseClasses,
-  buttonVariants,
+  buttonClasses,
+  type ButtonSize,
   type ButtonVariant,
-} from "../../utils/button";
+} from "@/utils/button";
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-  children: ReactNode;
-  className?: string;
   variant?: ButtonVariant;
+  size?: ButtonSize;
+  className?: string;
 };
 
-const Button = ({
-  children,
-  className,
-  variant = "primary",
-  type = "button",
-  ...props
-}: ButtonProps) => {
-  return (
-    <button
-      type={type}
-      className={clsx(buttonBaseClasses, buttonVariants[variant], className)}
-      {...props}
-    >
-      {children}
-    </button>
-  );
-};
+const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+  (
+    {
+      children,
+      variant = "primary",
+      size = "md",
+      className,
+      type = "button",
+      ...props
+    },
+    ref,
+  ) => {
+    return (
+      <button
+        ref={ref}
+        type={type}
+        className={buttonClasses(variant, size, className)}
+        {...props}
+      >
+        {children}
+      </button>
+    );
+  },
+);
+
+Button.displayName = "Button";
 
 export default Button;
