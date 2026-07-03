@@ -1,5 +1,6 @@
-import { navigationItems } from "../../data/navigation";
 import Container from "../common/Container";
+import DesktopNavigation from "../navigation/DesktopNavigation";
+import MobileNavigation from "../navigation/MobileNavigation";
 import LinkButton from "../ui/LinkButton";
 import ThemeSelector from "../ui/ThemeSelector";
 
@@ -18,18 +19,7 @@ const Navbar = () => {
             </a>
 
             {/* Desktop Navigation */}
-            <ul className="hidden items-center gap-8 lg:flex">
-              {navigationItems.map((item) => (
-                <li key={item.href}>
-                  <a
-                    href={item.href}
-                    className="text-foreground hover:text-primary text-sm font-medium transition-colors duration-300"
-                  >
-                    {item.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
+            <DesktopNavigation />
 
             {/* Right Section */}
             <div className="flex items-center gap-3">
@@ -44,6 +34,7 @@ const Navbar = () => {
               </LinkButton>
 
               {/* Mobile menu goes here */}
+              <MobileNavigation />
             </div>
           </div>
         </Container>
