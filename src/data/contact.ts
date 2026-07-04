@@ -10,6 +10,7 @@ export const contact: {
   title: string;
   subtitle: string;
   description: string;
+  phone: string;
   email: string;
   location: string;
   socials: ContactSocial[];
@@ -19,6 +20,8 @@ export const contact: {
 
   description:
     "I'm always interested in discussing software engineering, backend development, and full-stack opportunities. Whether you have a project in mind or just want to connect, feel free to reach out.",
+
+  phone: "+88 01323-834097",
 
   email: "mohammadali@example.com",
 

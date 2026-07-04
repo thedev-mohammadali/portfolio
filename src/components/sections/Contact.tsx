@@ -1,4 +1,4 @@
-import { Mail, MapPin, Send } from "lucide-react";
+import { Mail, MapPin, Phone, Send } from "lucide-react";
 
 import { FaGithub, FaLinkedin } from "react-icons/fa6";
 
@@ -33,6 +33,17 @@ const Contact = () => {
                 className="hover:text-primary transition-colors"
               >
                 {contact.email}
+              </a>
+            </div>
+
+            <div className="flex items-center justify-center gap-3">
+              <Phone size={20} className="text-primary" />
+
+              <a
+                href={`tel:${contact.phone}`}
+                className="hover:text-primary transition-colors"
+              >
+                {contact.phone}
               </a>
             </div>
 
