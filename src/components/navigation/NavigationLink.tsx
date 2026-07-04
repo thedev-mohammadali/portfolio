@@ -2,28 +2,34 @@ import clsx from "clsx";
 import { motion } from "motion/react";
 
 type NavigationLinkProps = {
-  href: string;
+  targetId: string;
   label: string;
   activeSection: string;
   className?: string;
   onClick?: () => void;
   animated?: boolean;
+  onNavigate?: (id: string) => void;
 };
 
 const NavigationLink = ({
-  href,
+  targetId,
   label,
   activeSection,
   className,
   onClick,
   animated = false,
+  onNavigate,
 }: NavigationLinkProps) => {
-  const isActive = activeSection === href.slice(1);
+  const isActive = activeSection === targetId;
+
+  const handleClick = () => {
+    onNavigate?.(targetId);
+    onClick?.();
+  };
 
   return (
-    <a
-      href={href}
-      onClick={onClick}
+    <button
+      onClick={handleClick}
       className={clsx(
         "relative inline-flex items-center py-2 transition-colors duration-300",
         isActive
@@ -31,6 +37,7 @@ const NavigationLink = ({
           : "text-muted-foreground hover:text-foreground",
         className,
       )}
+      aria-current={isActive ? "page" : undefined}
     >
       {label}
 
@@ -45,7 +52,7 @@ const NavigationLink = ({
           }}
         />
       )}
-    </a>
+    </button>
   );
 };
 

@@ -1,20 +1,23 @@
 import { Menu } from "lucide-react";
 
+import { scrollToSection } from "@/utils/scrollToSection";
+import { useState } from "react";
 import { navigationItems } from "../../data/navigation";
 import LinkButton from "../ui/LinkButton";
 import Button from "../ui/MyButton";
-import {
-  Sheet,
-  SheetClose,
-  SheetContent,
-  SheetTitle,
-  SheetTrigger,
-} from "../ui/sheet";
+import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "../ui/sheet";
 import NavigationLink from "./NavigationLink";
 
 const MobileNavigation = ({ activeSection }: { activeSection: string }) => {
+  const [open, setOpen] = useState(false);
+
+  const handleNavigate = (id: string) => {
+    scrollToSection(id);
+    setOpen(false);
+  };
+
   return (
-    <Sheet>
+    <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
         <Button
           variant="ghost"
@@ -27,7 +30,7 @@ const MobileNavigation = ({ activeSection }: { activeSection: string }) => {
       </SheetTrigger>
 
       <SheetContent side="right" className="w-80">
-        <SheetTitle className="mb-8 text-left text-xl font-bold">
+        <SheetTitle className="my-8 pl-2 text-left text-xl font-bold">
           {"</>"} Ali
         </SheetTitle>
 
@@ -35,29 +38,27 @@ const MobileNavigation = ({ activeSection }: { activeSection: string }) => {
           <ul className="space-y-2">
             {navigationItems.map((item) => (
               <li key={item.href}>
-                <SheetClose asChild>
-                  <NavigationLink
-                    href={item.href}
-                    label={item.label}
-                    activeSection={activeSection}
-                    className="hover:bg-card block rounded-lg px-4 py-3 text-base font-medium"
-                  />
-                </SheetClose>
+                <NavigationLink
+                  targetId={item.label.toLocaleLowerCase()}
+                  label={item.label}
+                  activeSection={activeSection}
+                  className="hover:bg-card block rounded-lg px-4 py-3 text-base font-medium"
+                  onNavigate={handleNavigate}
+                />
               </li>
             ))}
           </ul>
 
           <div className="mt-8 border-t pt-6">
-            <SheetClose asChild>
-              <LinkButton
-                href="/resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full"
-              >
-                Resume
-              </LinkButton>
-            </SheetClose>
+            <LinkButton
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full"
+              onClick={() => setOpen(false)}
+            >
+              Resume
+            </LinkButton>
           </div>
         </nav>
       </SheetContent>

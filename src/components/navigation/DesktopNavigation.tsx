@@ -1,4 +1,5 @@
 import { navigationItems } from "@/data/navigation";
+import { scrollToSection } from "@/utils/scrollToSection";
 import { motion } from "motion/react";
 import NavigationLink from "./NavigationLink";
 
@@ -9,11 +10,12 @@ const DesktopNavigation = ({ activeSection }: { activeSection: string }) => {
         <li key={item.href}>
           <motion.div layout>
             <NavigationLink
-              href={item.href}
+              targetId={item.label.toLocaleLowerCase()}
               label={item.label}
               activeSection={activeSection}
               animated
               className="text-sm font-medium"
+              onNavigate={(id) => scrollToSection(id)}
             />
           </motion.div>
         </li>
