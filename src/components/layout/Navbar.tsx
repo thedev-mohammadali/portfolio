@@ -1,5 +1,6 @@
 import { navigationSectionIds } from "@/data/navigation";
 import useActiveSection from "@/hooks/useActiveSection";
+import { scrollToSection } from "@/utils/scrollToSection";
 import Container from "../common/Container";
 import DesktopNavigation from "../navigation/DesktopNavigation";
 import MobileNavigation from "../navigation/MobileNavigation";
@@ -14,12 +15,12 @@ const Navbar = () => {
         <Container>
           <div className="flex h-20 items-center justify-between">
             {/* Logo */}
-            <a
-              href="#home"
+            <button
+              onClick={() => scrollToSection("home")}
               className="text-foreground hover:text-primary text-2xl font-bold tracking-tight transition-colors duration-300"
             >
               {"</>"} Ali
-            </a>
+            </button>
 
             {/* Desktop Navigation */}
             <DesktopNavigation activeSection={activeSection} />
