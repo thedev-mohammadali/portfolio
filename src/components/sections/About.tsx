@@ -5,7 +5,7 @@ import {
   fadeUp,
   staggerContainer,
 } from "../../animations/hero";
-import aboutImage from "../../assets/images/about.jpg";
+import aboutImage from "../../assets/images/about_1.jpg";
 import { about } from "../../data/about";
 import Container from "../common/Container";
 import Section from "../common/Section";
@@ -35,7 +35,7 @@ const About = () => {
               <img
                 src={aboutImage}
                 alt="Mohammad Ali"
-                className="border-border relative z-10 aspect-square w-72 rounded-2xl border object-cover object-[center_3%] shadow-xl md:w-96"
+                className="border-border relative z-10 aspect-square w-72 rounded-2xl border object-cover object-[center_35%] shadow-xl md:w-96"
               />
             </div>
           </motion.div>

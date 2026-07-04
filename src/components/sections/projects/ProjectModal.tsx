@@ -3,15 +3,20 @@ import { AnimatePresence, motion } from "motion/react";
 import { useEffect } from "react";
 import { FaGithub } from "react-icons/fa6";
 
+type ProjectStatus = "Completed" | "In Progress";
+
 type Project = {
   id: string;
   title: string;
   description: string;
+  image: string;
   technologies: string[];
   github: string;
   live: string;
-  challenges?: string;
-  improvements?: string;
+  features: string[];
+  challenges: string[];
+  futureImprovements: string[];
+  status: ProjectStatus;
 };
 
 type Props = {
@@ -51,7 +56,7 @@ const ProjectModal = ({ project, onClose }: Props) => {
 
           {/* Modal */}
           <motion.div
-            className="bg-card border-border relative z-10 w-full max-w-2xl rounded-2xl border p-6 shadow-xl"
+            className="bg-card border-border relative z-10 max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-2xl border p-6 shadow-xl"
             initial={{ opacity: 0, scale: 0.95, y: 10 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 10 }}
@@ -70,14 +75,20 @@ const ProjectModal = ({ project, onClose }: Props) => {
             </div>
 
             {/* Content */}
-            <div className="mt-6 space-y-5">
-              <p className="text-muted-foreground leading-7">
-                {project.description}
-              </p>
+            {/* Content */}
+            <div className="mt-6 space-y-6">
+              {/* Overview */}
+              <div>
+                <h3 className="mb-2 text-sm font-semibold">Overview</h3>
+
+                <p className="text-muted-foreground leading-7">
+                  {project.description}
+                </p>
+              </div>
 
               {/* Tech Stack */}
               <div>
-                <h3 className="mb-2 text-sm font-semibold">Tech Stack</h3>
+                <h3 className="mb-2 text-sm font-semibold">Technology Stack</h3>
 
                 <div className="flex flex-wrap gap-2">
                   {project.technologies.map((tech) => (
@@ -91,44 +102,61 @@ const ProjectModal = ({ project, onClose }: Props) => {
                 </div>
               </div>
 
-              {/* Challenges */}
-              {project.challenges && (
-                <div>
-                  <h3 className="mb-2 text-sm font-semibold">Challenges</h3>
-                  <p className="text-muted-foreground leading-7">
-                    {project.challenges}
-                  </p>
-                </div>
-              )}
+              {/* Features */}
+              <div>
+                <h3 className="mb-2 text-sm font-semibold">Key Features</h3>
 
-              {/* Improvements */}
-              {project.improvements && (
-                <div>
-                  <h3 className="mb-2 text-sm font-semibold">
-                    Future Improvements
-                  </h3>
-                  <p className="text-muted-foreground leading-7">
-                    {project.improvements}
-                  </p>
-                </div>
-              )}
+                <ul className="text-muted-foreground list-disc space-y-2 pl-5">
+                  {project.features.map((feature) => (
+                    <li key={feature}>{feature}</li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Challenges */}
+              <div>
+                <h3 className="mb-2 text-sm font-semibold">Challenges Faced</h3>
+
+                <ul className="text-muted-foreground list-disc space-y-2 pl-5">
+                  {project.challenges.map((challenge) => (
+                    <li key={challenge}>{challenge}</li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Future Improvements */}
+              <div>
+                <h3 className="mb-2 text-sm font-semibold">
+                  Future Improvements
+                </h3>
+
+                <ul className="text-muted-foreground list-disc space-y-2 pl-5">
+                  {project.futureImprovements.map((improvement) => (
+                    <li key={improvement}>{improvement}</li>
+                  ))}
+                </ul>
+              </div>
 
               {/* Links */}
-              <div className="flex gap-3 pt-2">
+              <div className="border-border flex flex-wrap gap-4 border-t pt-4">
                 <a
                   href={project.github}
                   target="_blank"
+                  rel="noopener noreferrer"
                   className="hover:text-primary inline-flex items-center gap-2 text-sm transition"
                 >
-                  <FaGithub size={16} /> GitHub
+                  <FaGithub size={16} />
+                  GitHub Repository
                 </a>
 
                 <a
                   href={project.live}
                   target="_blank"
+                  rel="noopener noreferrer"
                   className="hover:text-primary inline-flex items-center gap-2 text-sm transition"
                 >
-                  <ExternalLink size={16} /> Live Demo
+                  <ExternalLink size={16} />
+                  Live Demo
                 </a>
               </div>
             </div>
