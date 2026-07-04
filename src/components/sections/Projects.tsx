@@ -119,12 +119,14 @@ const Projects = () => {
 
         {/* View All */}
 
-        <div className="mt-14 flex justify-center">
-          <LinkButton href="/projects" variant="outline">
-            View All Projects
-            <ArrowRight size={18} />
-          </LinkButton>
-        </div>
+        {projects.items.length > 3 && (
+          <div className="mt-14 flex justify-center">
+            <LinkButton href="/projects" variant="outline">
+              View All Projects
+              <ArrowRight size={18} />
+            </LinkButton>
+          </div>
+        )}
         <ProjectModal
           project={selectedProject}
           onClose={() => setSelectedProject(null)}
