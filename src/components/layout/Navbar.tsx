@@ -1,3 +1,4 @@
+import Logo from "@/assets/images/logo-dark.svg";
 import { navigationSectionIds } from "@/data/navigation";
 import useActiveSection from "@/hooks/useActiveSection";
 import { scrollToSection } from "@/utils/scrollToSection";
@@ -17,9 +18,13 @@ const Navbar = () => {
             {/* Logo */}
             <button
               onClick={() => scrollToSection("home")}
-              className="text-foreground hover:text-primary text-2xl font-bold tracking-tight transition-colors duration-300"
+              className="text-foreground hover:text-primary flex items-center text-2xl font-bold tracking-tight transition-colors duration-300"
             >
-              {"</>"} Ali
+              <img
+                src={Logo}
+                alt="Ali logo"
+                className="h-14 w-14 shrink-0 object-contain transition-transform hover:scale-105 sm:h-16 sm:w-16"
+              />
             </button>
 
             {/* Desktop Navigation */}
