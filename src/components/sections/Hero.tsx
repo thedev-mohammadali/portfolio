@@ -2,7 +2,7 @@ import { ArrowRight, Download } from "lucide-react";
 import { motion } from "motion/react";
 
 import { fadeLeft, fadeUp, staggerContainer } from "../../animations/hero";
-import profileImage from "../../assets/images/profile1.jpg";
+import profileImage from "../../assets/images/profile_2.jpg";
 import { hero } from "../../data/hero";
 import { socials } from "../../data/socials";
 
@@ -117,7 +117,7 @@ const Hero = () => {
                 <motion.img
                   src={profileImage}
                   alt="Mohammad Ali"
-                  className="border-border relative z-10 aspect-square w-64 rounded-full border object-cover shadow-xl sm:w-72 md:w-80 lg:w-96"
+                  className="border-border relative z-10 aspect-square w-64 rounded-full border object-cover object-[center_7%] shadow-xl sm:w-72 md:w-80 lg:w-96"
                   whileHover={{
                     scale: 1.02,
                   }}

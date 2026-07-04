@@ -35,7 +35,7 @@ const About = () => {
               <img
                 src={aboutImage}
                 alt="Mohammad Ali"
-                className="border-border relative z-10 aspect-square w-72 rounded-2xl border object-cover shadow-xl md:w-96"
+                className="border-border relative z-10 aspect-square w-72 rounded-2xl border object-cover object-[center_3%] shadow-xl md:w-96"
               />
             </div>
           </motion.div>

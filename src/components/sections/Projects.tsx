@@ -20,17 +20,15 @@ const Projects = () => {
           {homeProjects.map((project) => (
             <article
               key={project.id}
-              className="border-border bg-card overflow-hidden rounded-2xl border transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+              className="border-border bg-card flex h-full flex-col overflow-hidden rounded-2xl border transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
             >
               {/* Preview */}
-
               <div className="border-border bg-muted flex aspect-video items-center justify-center border-b">
                 <span className="text-muted-foreground">Project Preview</span>
               </div>
 
               {/* Content */}
-
-              <div className="flex h-full flex-col p-6">
+              <div className="flex flex-1 flex-col p-6">
                 <h3 className="text-foreground text-2xl font-semibold">
                   {project.title}
                 </h3>
@@ -40,7 +38,6 @@ const Projects = () => {
                 </p>
 
                 {/* Technologies */}
-
                 <div className="mt-6 flex flex-wrap gap-2">
                   {project.technologies.map((tech) => (
                     <span
@@ -53,8 +50,7 @@ const Projects = () => {
                 </div>
 
                 {/* Actions */}
-
-                <div className="mt-8 flex items-center justify-between">
+                <div className="mt-auto flex items-center justify-between pt-8">
                   <div className="flex gap-3">
                     <LinkButton
                       href={project.github}
