@@ -23,20 +23,25 @@ const Projects = () => {
           {homeProjects.map((project) => (
             <article
               key={project.id}
-              className="border-border bg-card flex h-full flex-col overflow-hidden rounded-2xl border transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+              className="group border-border bg-card flex h-full flex-col overflow-hidden rounded-2xl border transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
             >
               {/* Preview */}
-              <div className="border-border bg-muted flex aspect-video items-center justify-center border-b">
-                <span className="text-muted-foreground">Project Preview</span>
+              <div className="border-border from-muted/60 to-muted relative flex aspect-video items-center justify-center overflow-hidden border-b bg-linear-to-br">
+                <div className="text-muted-foreground text-sm opacity-70 transition group-hover:opacity-100">
+                  Preview Coming Soon
+                </div>
+
+                {/* subtle glow effect */}
+                <div className="bg-primary/5 absolute inset-0 opacity-0 transition group-hover:opacity-100" />
               </div>
 
               {/* Content */}
               <div className="flex flex-1 flex-col p-6">
-                <h3 className="text-foreground text-2xl font-semibold">
+                <h3 className="text-foreground group-hover:text-primary text-xl font-semibold tracking-tight transition-colors">
                   {project.title}
                 </h3>
 
-                <p className="text-muted-foreground mt-4 leading-7">
+                <p className="text-muted-foreground mt-3 text-sm leading-6">
                   {project.description}
                 </p>
 
@@ -45,7 +50,7 @@ const Projects = () => {
                   {project.technologies.map((tech) => (
                     <span
                       key={tech}
-                      className="border-border bg-background text-muted-foreground rounded-full border px-3 py-1 text-sm"
+                      className="border-border bg-background/60 text-muted-foreground hover:border-primary/40 hover:text-primary rounded-full border px-2.5 py-1 text-xs backdrop-blur-sm transition"
                     >
                       {tech}
                     </span>
@@ -53,12 +58,13 @@ const Projects = () => {
                 </div>
 
                 {/* Actions */}
-                <div className="mt-auto flex items-center justify-between pt-8">
+                <div className="border-border/60 mt-auto flex items-center justify-between border-t pt-6">
                   <div className="flex gap-3">
                     <LinkButton
                       href={project.github}
                       variant="outline"
                       aria-label="GitHub Repository"
+                      className="hover:border-primary/40 transition"
                     >
                       <FaGithub size={18} />
                     </LinkButton>
@@ -67,14 +73,21 @@ const Projects = () => {
                       href={project.live}
                       variant="outline"
                       aria-label="Live Demo"
+                      className="hover:border-primary/40 transition"
                     >
                       <ExternalLink size={18} />
                     </LinkButton>
                   </div>
 
-                  <Button onClick={() => setSelectedProject(project)}>
-                    Details
-                    <ArrowRight size={18} />
+                  <Button
+                    onClick={() => setSelectedProject(project)}
+                    className="group/btn"
+                  >
+                    <span>Details</span>
+                    <ArrowRight
+                      size={18}
+                      className="transition-transform group-hover/btn:translate-x-1"
+                    />
                   </Button>
                 </div>
               </div>

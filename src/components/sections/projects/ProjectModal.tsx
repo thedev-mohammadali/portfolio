@@ -21,21 +21,21 @@ type Props = {
 
 const ProjectModal = ({ project, onClose }: Props) => {
   useEffect(() => {
+    if (!project) return;
+
+    document.body.classList.add("overflow-hidden");
+
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        onClose();
-      }
+      if (e.key === "Escape") onClose();
     };
 
     window.addEventListener("keydown", handleKeyDown);
 
-    document.body.style.overflow = "hidden";
-
     return () => {
+      document.body.classList.remove("overflow-hidden");
       window.removeEventListener("keydown", handleKeyDown);
-      document.body.style.overflow = "";
     };
-  }, [onClose]);
+  }, [project, onClose]);
   return (
     <AnimatePresence>
       {project && (
