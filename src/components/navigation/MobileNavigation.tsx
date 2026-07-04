@@ -1,6 +1,6 @@
-import { Menu } from "lucide-react";
-
+import Logo from "@/assets/images/logo-dark.svg";
 import { scrollToSection } from "@/utils/scrollToSection";
+import { Menu } from "lucide-react";
 import { useState } from "react";
 import { navigationItems } from "../../data/navigation";
 import LinkButton from "../ui/LinkButton";
@@ -31,7 +31,11 @@ const MobileNavigation = ({ activeSection }: { activeSection: string }) => {
 
       <SheetContent side="right" className="w-80">
         <SheetTitle className="my-8 pl-2 text-left text-xl font-bold">
-          {"</>"} Ali
+          <img
+            src={Logo}
+            alt="Ali logo"
+            className="h-14 w-14 shrink-0 object-contain transition-transform hover:scale-105 sm:h-16 sm:w-16"
+          />
         </SheetTitle>
 
         <nav aria-label="Mobile navigation">
