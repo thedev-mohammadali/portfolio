@@ -1,3 +1,4 @@
+import LinkButton from "@/components/ui/LinkButton";
 import { ExternalLink, X } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect } from "react";
@@ -56,27 +57,27 @@ const ProjectModal = ({ project, onClose }: Props) => {
 
           {/* Modal */}
           <motion.div
-            className="bg-card border-border relative z-10 max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-2xl border p-6 shadow-xl"
+            className="bg-card border-border relative z-10 max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-2xl border shadow-xl"
             initial={{ opacity: 0, scale: 0.95, y: 10 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 10 }}
             transition={{ duration: 0.2 }}
           >
             {/* Header */}
-            <div className="flex items-center justify-between">
+            <div className="bg-card/10 border-border sticky top-0 z-10 flex items-center justify-between border-b px-6 py-4 backdrop-blur-md">
               <h2 className="text-xl font-semibold">{project.title}</h2>
 
               <button
                 onClick={onClose}
-                className="text-muted-foreground hover:text-foreground transition"
+                className="text-muted-foreground hover:text-foreground rounded-md p-1 transition"
+                aria-label="Close project details"
               >
                 <X size={20} />
               </button>
             </div>
 
             {/* Content */}
-            {/* Content */}
-            <div className="mt-6 space-y-6">
+            <div className="space-y-6 p-6 pb-0">
               {/* Overview */}
               <div>
                 <h3 className="mb-2 text-sm font-semibold">Overview</h3>
@@ -138,26 +139,20 @@ const ProjectModal = ({ project, onClose }: Props) => {
               </div>
 
               {/* Links */}
-              <div className="border-border flex flex-wrap gap-4 border-t pt-4">
-                <a
+              <div className="bg-card/90 border-border sticky bottom-0 flex flex-wrap justify-end gap-3 border-t px-6 py-4 backdrop-blur-md">
+                <LinkButton
                   href={project.github}
                   target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-primary inline-flex items-center gap-2 text-sm transition"
+                  variant="outline"
                 >
                   <FaGithub size={16} />
-                  GitHub Repository
-                </a>
+                  GitHub
+                </LinkButton>
 
-                <a
-                  href={project.live}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-primary inline-flex items-center gap-2 text-sm transition"
-                >
+                <LinkButton href={project.live} target="_blank">
                   <ExternalLink size={16} />
                   Live Demo
-                </a>
+                </LinkButton>
               </div>
             </div>
           </motion.div>
