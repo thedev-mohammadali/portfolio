@@ -1,14 +1,17 @@
 import { ArrowRight, ExternalLink } from "lucide-react";
 import { FaGithub } from "react-icons/fa6";
 
+import { useState } from "react";
 import { projects } from "../../data/projects";
 import Container from "../common/Container";
 import Section from "../common/Section";
 import SectionTitle from "../common/SectionTitle";
 import LinkButton from "../ui/LinkButton";
 import Button from "../ui/MyButton";
+import ProjectModal from "./projects/ProjectModal";
 
 const Projects = () => {
+  const [selectedProject, setSelectedProject] = useState<any>(null);
   const homeProjects = projects.items.slice(0, 3);
 
   return (
@@ -69,7 +72,7 @@ const Projects = () => {
                     </LinkButton>
                   </div>
 
-                  <Button>
+                  <Button onClick={() => setSelectedProject(project)}>
                     Details
                     <ArrowRight size={18} />
                   </Button>
@@ -87,6 +90,10 @@ const Projects = () => {
             <ArrowRight size={18} />
           </LinkButton>
         </div>
+        <ProjectModal
+          project={selectedProject}
+          onClose={() => setSelectedProject(null)}
+        />
       </Container>
     </Section>
   );
