@@ -1,26 +1,19 @@
 import { FaFacebook, FaGithub, FaLinkedin } from "react-icons/fa6";
 
-import { Mail } from "lucide-react";
-
 export const socials = [
   {
     name: "GitHub",
-    href: "https://github.com/your-username",
+    href: "https://github.com/thedev-mohammadali",
     icon: FaGithub,
   },
   {
     name: "LinkedIn",
-    href: "https://linkedin.com/in/your-profile",
+    href: "https://www.linkedin.com/in/mohammad-ali-b7b11b420/",
     icon: FaLinkedin,
   },
   {
     name: "Facebook",
-    href: "https://facebook.com/your-profile",
+    href: "https://www.facebook.com/ali91131129/",
     icon: FaFacebook,
-  },
-  {
-    name: "Email",
-    href: "mailto:you@example.com",
-    icon: Mail,
   },
 ];

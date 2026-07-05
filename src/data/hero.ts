@@ -3,10 +3,10 @@ export const hero = {
 
   name: "Mohammad Ali",
 
-  designation: "Backend Developer",
+  designation: "Full Stack Developer",
 
   description:
-    "I build secure, scalable backend applications using TypeScript, Express, PostgreSQL, and modern software engineering practices.",
+    "A full-stack developer who enjoys designing robust backend systems and building clean, responsive frontend experiences with modern web technologies.",
 
   resume: "/resume.pdf",
 };

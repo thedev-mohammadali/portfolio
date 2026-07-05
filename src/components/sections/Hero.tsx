@@ -60,8 +60,8 @@ const Hero = () => {
                 Download Resume
               </LinkButton>
 
-              <LinkButton href="#projects" variant="outline">
-                View Projects
+              <LinkButton href="#contact" variant="outline">
+                Contact Me
                 <ArrowRight size={18} />
               </LinkButton>
             </motion.div>
@@ -74,6 +74,7 @@ const Hero = () => {
                 <motion.div key={social.name} variants={fadeUp}>
                   <SocialButton
                     href={social.href}
+                    target="_blank"
                     aria-label={social.name}
                     icon={<social.icon size={22} />}
                   />

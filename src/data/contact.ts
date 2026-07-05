@@ -23,7 +23,7 @@ export const contact: {
 
   phone: "+88 01323-834097",
 
-  email: "mohammadali@example.com",
+  email: "thedev.mohammadali@gmail.com",
 
   location: "Rajshahi, Bangladesh",
 
@@ -31,12 +31,12 @@ export const contact: {
     {
       id: "github",
       name: "GitHub",
-      href: "#",
+      href: "https://github.com/thedev-mohammadali",
     },
     {
       id: "linkedin",
       name: "LinkedIn",
-      href: "#",
+      href: "https://www.linkedin.com/in/mohammad-ali-b7b11b420/",
     },
   ],
 };

@@ -59,6 +59,7 @@ const Contact = () => {
 
                 return (
                   <LinkButton
+                    target="_blank"
                     key={social.id}
                     href={social.href}
                     variant="outline"
