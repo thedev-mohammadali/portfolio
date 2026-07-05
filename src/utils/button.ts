@@ -1,14 +1,16 @@
 import clsx from "clsx";
 
 export const buttonBaseClasses =
-  "inline-flex cursor-pointer items-center justify-center gap-2 rounded-lg text-sm font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background";
+  "inline-flex cursor-pointer items-center justify-center gap-2 rounded-lg text-sm font-medium transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background";
 
 export const buttonVariants = {
-  primary: "bg-primary text-white hover:bg-primary-hover",
+  primary:
+    "bg-primary text-white shadow-sm hover:bg-primary-hover hover:shadow-lg",
 
-  outline: "border border-border bg-transparent text-foreground hover:bg-card",
+  outline:
+    "border border-border bg-transparent text-foreground shadow-sm hover:border-primary hover:bg-primary hover:text-white hover:shadow-lg",
 
-  ghost: "bg-transparent text-foreground hover:bg-card",
+  ghost: "bg-transparent text-foreground hover:bg-card hover:shadow-md",
 } as const;
 
 export const buttonSizes = {

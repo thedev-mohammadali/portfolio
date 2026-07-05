@@ -55,8 +55,8 @@ const MobileNavigation = ({ activeSection }: { activeSection: string }) => {
 
           <div className="mt-8 border-t pt-6">
             <LinkButton
-              href="/resume.pdf"
-              target="_blank"
+              // href="/resume.pdf"
+              // target="_blank"
               rel="noopener noreferrer"
               className="w-full"
               onClick={() => setOpen(false)}

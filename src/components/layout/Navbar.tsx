@@ -34,13 +34,7 @@ const Navbar = () => {
             <div className="flex items-center gap-3">
               <ThemeSelector />
 
-              <LinkButton
-                href="/resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Resume
-              </LinkButton>
+              <LinkButton>Resume</LinkButton>
 
               {/* Mobile menu goes here */}
               <MobileNavigation activeSection={activeSection} />

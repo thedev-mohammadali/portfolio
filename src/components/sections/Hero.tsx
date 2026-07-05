@@ -6,9 +6,11 @@ import profileImage from "../../assets/images/profile_2.jpg";
 import { hero } from "../../data/hero";
 import { socials } from "../../data/socials";
 
+import { scrollToSection } from "@/utils/scrollToSection";
 import Container from "../common/Container";
 import Section from "../common/Section";
 import LinkButton from "../ui/LinkButton";
+import Button from "../ui/MyButton";
 import SocialButton from "../ui/SocialButton";
 
 const Hero = () => {
@@ -55,15 +57,22 @@ const Hero = () => {
               variants={fadeUp}
               className="mt-8 flex w-full flex-col gap-4 sm:w-auto sm:flex-row sm:flex-wrap sm:justify-center lg:justify-start"
             >
-              <LinkButton href={hero.resume} download>
+              <LinkButton>
                 <Download size={18} />
                 Download Resume
               </LinkButton>
 
-              <LinkButton href="#contact" variant="outline">
+              <Button
+                onClick={() => scrollToSection("contact")}
+                variant="outline"
+                className="group"
+              >
                 Contact Me
-                <ArrowRight size={18} />
-              </LinkButton>
+                <ArrowRight
+                  size={18}
+                  className="transition-transform duration-300 group-hover:translate-x-1"
+                />
+              </Button>
             </motion.div>
 
             <motion.div
